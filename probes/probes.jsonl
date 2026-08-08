@@ -1,0 +1,12 @@
+{"code": "from flask import request\ndef h():\n    return eval(request.args.get('x'))\n", "file": "v1_flask_eval_args.py", "id": "v1_flask_eval_args_L3", "label": "FLAG", "line": 3, "spurious": false}
+{"code": "from flask import request\ndef h():\n    exec(request.form['c'])\n", "file": "v2_flask_exec_form.py", "id": "v2_flask_exec_form_L3", "label": "FLAG", "line": 3, "spurious": false}
+{"code": "def h():\n    return eval(input())\n", "file": "v3_plain_eval_input.py", "id": "v3_plain_eval_input_L2", "label": "FLAG", "line": 2, "spurious": false}
+{"code": "import os\ndef h():\n    code = compile(os.environ['E'], '<s>', 'exec')\n    exec(code)\n", "file": "v4_os_compile_exec.py", "id": "v4_os_compile_exec_L4", "label": "SAFE", "line": 4, "spurious": false}
+{"code": "def h(request):\n    return eval(request.GET['q'])\n", "file": "v5_django_eval_get.py", "id": "v5_django_eval_get_L2", "label": "FLAG", "line": 2, "spurious": false}
+{"code": "import sys\ndef h():\n    exec(sys.argv[1])\n", "file": "v6_sys_exec_argv.py", "id": "v6_sys_exec_argv_L3", "label": "FLAG", "line": 3, "spurious": false}
+{"code": "from flask import request\nimport ast\ndef h():\n    return ast.literal_eval(request.args.get('x'))\n", "file": "s1_literal_eval_args.py", "id": "s1_literal_eval_args_L4", "label": "SAFE", "line": 4, "spurious": false}
+{"code": "from flask import request\nimport json\ndef h():\n    return json.loads(request.form['d'])\n", "file": "s2_json_loads_form.py", "id": "s2_json_loads_form_L4", "label": "SAFE", "line": 4, "spurious": false}
+{"code": "def h():\n    return eval('1+2')\n", "file": "s3_eval_constant.py", "id": "s3_eval_constant_L2", "label": "SAFE", "line": 2, "spurious": false}
+{"code": "from flask import request\ndef h():\n    return int(request.args.get('n'))\n", "file": "s4_no_sink_int.py", "id": "s4_no_sink_int_L3", "label": "SAFE", "line": 3, "spurious": false}
+{"code": "def h(user):\n    if user in {'a', 'b', 'c'}:\n        return user\n    return None\n", "file": "s5_allowlist_no_eval.py", "id": "s5_allowlist_no_eval_L4", "label": "SAFE", "line": 4, "spurious": false}
+{"code": "import ast\ndef h():\n    return ast.literal_eval(input())\n", "file": "s6_literal_eval_input.py", "id": "s6_literal_eval_input_L3", "label": "SAFE", "line": 3, "spurious": false}

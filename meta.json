@@ -1,0 +1,20 @@
+{
+ "chips": [
+  "CWE-94",
+  "python",
+  "deterministic",
+  "non-degenerate",
+  "external-GT"
+ ],
+ "dec": "FLAG|SAFE",
+ "form": "CWE-94/python taint oracle (vendored ratified engine)",
+ "n": 12,
+ "proof": [
+  "recall 5/5",
+  "FP0 on 7 negatives",
+  "external GT: semgrep-taint-mode"
+ ],
+ "provenance": "cuda GPU-lane probes, semgrep-taint adjudicated; concorde ratified engine",
+ "rerun": "python3 verify.py",
+ "set_hash": "0c9552b62333"
+}
